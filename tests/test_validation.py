@@ -134,6 +134,18 @@ class ValidationTest(unittest.TestCase):
                 self.assertEqual(out.getvalue(), '')
                 self.assertIn(error, err.getvalue())
 
+    def test_cli_invalid_utf8_current_and_previous(self):
+        with tempfile.TemporaryDirectory() as directory:
+            valid = pathlib.Path(directory) / 'valid.json'
+            invalid = pathlib.Path(directory) / 'invalid.json'
+            valid.write_text(json.dumps(self.data), encoding='utf-8')
+            invalid.write_bytes(b'{"brand": "\xff"}')
+            for args in ([invalid], [valid, invalid]):
+                result = subprocess.run([sys.executable, str(ROOT / 'scripts/scorecard.py'), *map(str, args)], capture_output=True, text=True)
+                self.assertEqual(result.returncode, 2)
+                self.assertEqual(result.stdout, '')
+                self.assertEqual(result.stderr, 'Invalid JSON encoding: expected UTF-8.\n')
+
     def test_missing_file_is_clean_error(self):
         with tempfile.TemporaryDirectory() as directory:
             out, err = io.StringIO(), io.StringIO()

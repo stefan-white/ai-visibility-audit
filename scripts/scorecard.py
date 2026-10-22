@@ -229,6 +229,9 @@ def main(argv: list[str]) -> int:
     except json.JSONDecodeError as exc:
         print(f"Invalid JSON at line {exc.lineno}, column {exc.colno}", file=sys.stderr)
         return 2
+    except UnicodeDecodeError:
+        print("Invalid JSON encoding: expected UTF-8.", file=sys.stderr)
+        return 2
     except OSError:
         print("Cannot read input or bundled schema; check file access.", file=sys.stderr)
         return 2
