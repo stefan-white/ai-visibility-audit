@@ -33,6 +33,15 @@ class ScorecardTest(unittest.TestCase):
         self.assertIn("FAILED", md)
         self.assertIn("✅ #3", md)
 
+    def test_checked_in_scorecard_matches_renderer(self):
+        expected = (ROOT / 'examples/acme-widgets.scorecard.md').read_text(encoding='utf-8')
+        self.assertEqual(scorecard.render(self.data), expected)
+        self.assertTrue(expected.startswith('> ' + self.data['_note']))
+
+    def test_optional_note_is_not_invented(self):
+        del self.data['_note']
+        self.assertTrue(scorecard.render(self.data).startswith('# AI Visibility Scorecard'))
+
     def test_diff_against_previous(self):
         prev = json.loads(json.dumps(self.data))
         for r in prev["results"]:

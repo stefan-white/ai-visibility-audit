@@ -190,6 +190,8 @@ def render(data: dict, prev: dict | None = None) -> str:
     engines = _engines(data)
     idx = {(r["engine"], r["question_id"]): r for r in data.get("results", [])}
     out = [f"# AI Visibility Scorecard — {data.get('brand', 'Unknown brand')}", ""]
+    if data.get("_note"):
+        out[:0] = ["> " + " ".join(data["_note"].splitlines()), ""]
     if data.get("date"):
         out += [f"Audit date: {data['date']}", ""]
     out += [f"**Overall hit rate (valid answers only): {_pct(s['overall_hit_rate'])}**", ""]

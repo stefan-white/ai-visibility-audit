@@ -1,4 +1,4 @@
-> SYNTHETIC FIXTURE ONLY — fictional Acme Widgets, not real observations.
+> FAKE example data for a fictional brand. Not real measurements.
 
 # AI Visibility Scorecard — Acme Widgets
 
