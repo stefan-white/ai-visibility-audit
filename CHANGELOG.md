@@ -12,6 +12,7 @@ All notable changes are documented here. Format: Keep a Changelog; versioning: S
 - Offline fixture CI on pushes and pull requests for Python 3.10, 3.11, and 3.12.
 
 ### Fixed
+- Render the supplied results note so synthetic fixture provenance survives regeneration.
 - Invalid UTF-8 input now fails cleanly with exit code 2 before any report output.
 - Standardized synthetic competitor placeholders to `.example` domains and corrected the example intent-answer denominator.
 
