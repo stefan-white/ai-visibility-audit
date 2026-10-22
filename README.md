@@ -7,7 +7,7 @@ ChatGPT, Gemini, Google AI Mode, Perplexity — and pairs it with classic Google
 keyword rankings and competitor domains. The output is an evidence-based report
 plus a fix list that a coding agent can act on.
 
-> Status: v0.1.0, early. Feedback and PRs welcome.
+> Status: v0.2.0, early. Feedback and PRs welcome.
 
 ## Why
 
@@ -115,6 +115,22 @@ Excerpt:
 | Q1 (intent): Best industrial widget manufacturers for small factories? | ❌ | ❌ |
 | Q2 (intent): Which widget suppliers offer custom sizes with short lead times? | ✅ #3 | FAILED |
 | Q3 (brand): Is Acme Widgets a reliable supplier? | ✅ #1 | ✅ #1 |
+
+## Maintenance roadmap
+
+Completed in v0.2.0: [results schema and validation](https://github.com/stefan-white/ai-visibility-audit/issues/1),
+[manual worksheet](https://github.com/stefan-white/ai-visibility-audit/issues/2), and
+[industry questions](https://github.com/stefan-white/ai-visibility-audit/issues/5).
+
+Planned work remains open:
+
+- [Direct DataForSEO and manual provider documentation](https://github.com/stefan-white/ai-visibility-audit/issues/3)
+- [Synthetic Gemini and Google AI Mode examples](https://github.com/stefan-white/ai-visibility-audit/issues/4)
+- [Comparison presentation and comparability](https://github.com/stefan-white/ai-visibility-audit/issues/6)
+- [Week 3: optional OpenAI parsing](https://github.com/stefan-white/ai-visibility-audit/issues/7), subject to explicit budget approval; CI stays offline.
+
+See [CHANGELOG.md](CHANGELOG.md) for release details and
+[SECURITY.md](SECURITY.md) for reporting guidance.
 
 ## Limitations
 

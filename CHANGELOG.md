@@ -4,6 +4,8 @@ All notable changes are documented here. Format: Keep a Changelog; versioning: S
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-22
+
 ### Added
 - Fictional industrial equipment and SaaS prompt sets, each with five intent questions and one brand question.
 - Standalone manual audit worksheet requiring no paid tools or API keys.
